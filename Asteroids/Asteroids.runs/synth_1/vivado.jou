@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Fri Mar  7 00:54:10 2025
+# Process ID: 22564
+# Current directory: C:/Users/RUDRA/Documents/Git/Asteroid/Asteroids/Asteroids.runs/synth_1
+# Command line: vivado.exe -log top_module.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_module.tcl
+# Log file: C:/Users/RUDRA/Documents/Git/Asteroid/Asteroids/Asteroids.runs/synth_1/top_module.vds
+# Journal file: C:/Users/RUDRA/Documents/Git/Asteroid/Asteroids/Asteroids.runs/synth_1\vivado.jou
+# Running On        :ROG-Rud
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :26100
+# Processor Detail  :AMD Ryzen 7 6800HS with Radeon Graphics         
+# CPU Frequency     :3194 MHz
+# CPU Physical cores:8
+# CPU Logical cores :16
+# Host memory       :14777 MB
+# Swap memory       :8053 MB
+# Total Virtual     :22830 MB
+# Available Virtual :4845 MB
+#-----------------------------------------------------------
+source top_module.tcl -notrace
