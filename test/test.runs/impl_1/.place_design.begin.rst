@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command=".planAhead." Owner="RUDRA" Host="ROG-RUD" Pid="24568">
-    </Process>
-</ProcessHandle>
