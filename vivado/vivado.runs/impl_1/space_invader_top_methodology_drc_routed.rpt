@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date         : Sat Apr 12 15:43:35 2025
+| Date         : Sat Apr 12 16:57:00 2025
 | Host         : ROG-Rud running 64-bit major release  (build 9200)
 | Command      : report_methodology -file space_invader_top_methodology_drc_routed.rpt -pb space_invader_top_methodology_drc_routed.pb -rpx space_invader_top_methodology_drc_routed.rpx
 | Design       : space_invader_top
@@ -23,16 +23,47 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 681
-+-----------+------------------+-------------------------------+------------+
-| Rule      | Severity         | Description                   | Violations |
-+-----------+------------------+-------------------------------+------------+
-| TIMING-17 | Critical Warning | Non-clocked sequential cell   | 667        |
-| TIMING-18 | Warning          | Missing input or output delay | 14         |
-+-----------+------------------+-------------------------------+------------+
+             Violations found: 726
++-----------+------------------+-----------------------------------------------------------+------------+
+| Rule      | Severity         | Description                                               | Violations |
++-----------+------------------+-----------------------------------------------------------+------------+
+| TIMING-4  | Critical Warning | Invalid primary clock redefinition on a clock tree        | 1          |
+| TIMING-6  | Critical Warning | No common primary clock between related clocks            | 2          |
+| TIMING-7  | Critical Warning | No common node between related clocks                     | 2          |
+| TIMING-17 | Critical Warning | Non-clocked sequential cell                               | 613        |
+| TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin                 | 1          |
+| TIMING-51 | Critical Warning | No common phase between related clocks from parallel CMBs | 2          |
+| TIMING-16 | Warning          | Large setup violation                                     | 91         |
+| TIMING-18 | Warning          | Missing input or output delay                             | 14         |
++-----------+------------------+-----------------------------------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
+TIMING-4#1 Critical Warning
+Invalid primary clock redefinition on a clock tree  
+Invalid clock redefinition on a clock tree. The primary clock u_clkgen/inst/clk_in1 is defined downstream of clock sys_clk_pin and overrides its insertion delay and/or waveform definition
+Related violations: <none>
+
+TIMING-6#1 Critical Warning
+No common primary clock between related clocks  
+The clocks clk_out1_clk_wiz_0 and sys_clk_pin are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_clk_wiz_0] -to [get_clocks sys_clk_pin]
+Related violations: <none>
+
+TIMING-6#2 Critical Warning
+No common primary clock between related clocks  
+The clocks sys_clk_pin and clk_out1_clk_wiz_0 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks sys_clk_pin] -to [get_clocks clk_out1_clk_wiz_0]
+Related violations: <none>
+
+TIMING-7#1 Critical Warning
+No common node between related clocks  
+The clocks clk_out1_clk_wiz_0 and sys_clk_pin are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_clk_wiz_0] -to [get_clocks sys_clk_pin]
+Related violations: <none>
+
+TIMING-7#2 Critical Warning
+No common node between related clocks  
+The clocks sys_clk_pin and clk_out1_clk_wiz_0 are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks sys_clk_pin] -to [get_clocks clk_out1_clk_wiz_0]
+Related violations: <none>
+
 TIMING-17#1 Critical Warning
 Non-clocked sequential cell  
 The clock pin gc0/ADDSUB_MACRO_inst/dsp_bl.DSP48E_BL/CLK is not reached by a timing clock
@@ -3098,274 +3129,474 @@ Non-clocked sequential cell
 The clock pin pl0/shot_en_reg[1]_inv/C is not reached by a timing clock
 Related violations: <none>
 
-TIMING-17#614 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[0]/C is not reached by a timing clock
+TIMING-27#1 Critical Warning
+Invalid primary clock on hierarchical pin  
+A primary clock u_clkgen/inst/clk_in1 is created on an inappropriate internal pin u_clkgen/inst/clk_in1. It is not recommended to create a primary clock on a hierarchical pin when its driver pin has a fanout connected to multiple clock pins
 Related violations: <none>
 
-TIMING-17#615 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[0]_rep/C is not reached by a timing clock
+TIMING-51#1 Critical Warning
+No common phase between related clocks from parallel CMBs  
+The clocks clk_out1_clk_wiz_0 and sys_clk_pin are timed together but have no phase relationship. The design could fail in hardware. The clocks originate from two parallel Clock Modifying Blocks and at least one of the MMCM or PLLs clock dividers is not set to 1. To be safely timed, all MMCMs or PLLs involved in parallel clocking must have the clock divider set to 1.
 Related violations: <none>
 
-TIMING-17#616 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[10]/C is not reached by a timing clock
+TIMING-51#2 Critical Warning
+No common phase between related clocks from parallel CMBs  
+The clocks sys_clk_pin and clk_out1_clk_wiz_0 are timed together but have no phase relationship. The design could fail in hardware. The clocks originate from two parallel Clock Modifying Blocks and at least one of the MMCM or PLLs clock dividers is not set to 1. To be safely timed, all MMCMs or PLLs involved in parallel clocking must have the clock divider set to 1.
 Related violations: <none>
 
-TIMING-17#617 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[1]/C is not reached by a timing clock
+TIMING-16#1 Warning
+Large setup violation  
+There is a large setup violation of -3.779 ns between vt0/vs0/h_count_reg_reg[3]_rep__0/C (clocked by clk_out1_clk_wiz_0) and isc0/is1/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#618 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[1]_rep/C is not reached by a timing clock
+TIMING-16#2 Warning
+Large setup violation  
+There is a large setup violation of -3.889 ns between vt0/vs0/h_count_reg_reg[3]_rep/C (clocked by clk_out1_clk_wiz_0) and isc0/is4/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#619 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[2]/C is not reached by a timing clock
+TIMING-16#3 Warning
+Large setup violation  
+There is a large setup violation of -3.910 ns between vt0/vs0/v_count_reg_reg[8]_rep/C (clocked by clk_out1_clk_wiz_0) and isc0/is10/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#620 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[2]_rep/C is not reached by a timing clock
+TIMING-16#4 Warning
+Large setup violation  
+There is a large setup violation of -3.929 ns between vt0/vs0/h_count_reg_reg[3]_rep__0/C (clocked by clk_out1_clk_wiz_0) and isc0/is23/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#621 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[3]/C is not reached by a timing clock
+TIMING-16#5 Warning
+Large setup violation  
+There is a large setup violation of -3.947 ns between vt0/vs0/v_count_reg_reg[1]/C (clocked by clk_out1_clk_wiz_0) and isc0/is15/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#622 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[3]_rep/C is not reached by a timing clock
+TIMING-16#6 Warning
+Large setup violation  
+There is a large setup violation of -4.015 ns between vt0/vs0/h_count_reg_reg[3]_rep__0/C (clocked by clk_out1_clk_wiz_0) and isc0/is6/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#623 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[3]_rep__0/C is not reached by a timing clock
+TIMING-16#7 Warning
+Large setup violation  
+There is a large setup violation of -4.111 ns between vt0/vs0/h_count_reg_reg[3]_rep__0/C (clocked by clk_out1_clk_wiz_0) and isc0/is11/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#624 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[3]_rep__1/C is not reached by a timing clock
+TIMING-16#8 Warning
+Large setup violation  
+There is a large setup violation of -4.206 ns between vt0/vs0/v_count_reg_reg[9]_rep/C (clocked by clk_out1_clk_wiz_0) and isc0/is20/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#625 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[4]/C is not reached by a timing clock
+TIMING-16#9 Warning
+Large setup violation  
+There is a large setup violation of -4.235 ns between vt0/vs0/h_count_reg_reg[3]_rep/C (clocked by clk_out1_clk_wiz_0) and isc0/is21/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#626 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[4]_rep/C is not reached by a timing clock
+TIMING-16#10 Warning
+Large setup violation  
+There is a large setup violation of -4.278 ns between vt0/vs0/v_count_reg_reg[6]/C (clocked by clk_out1_clk_wiz_0) and isc0/is12/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#627 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[4]_rep__0/C is not reached by a timing clock
+TIMING-16#11 Warning
+Large setup violation  
+There is a large setup violation of -4.278 ns between vt0/vs0/v_count_reg_reg[9]_rep/C (clocked by clk_out1_clk_wiz_0) and isc0/is0/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#628 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[4]_rep__1/C is not reached by a timing clock
+TIMING-16#12 Warning
+Large setup violation  
+There is a large setup violation of -4.364 ns between vt0/vs0/v_count_reg_reg[9]_rep/C (clocked by clk_out1_clk_wiz_0) and isc0/is13/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#629 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[4]_rep__2/C is not reached by a timing clock
+TIMING-16#13 Warning
+Large setup violation  
+There is a large setup violation of -4.386 ns between vt0/vs0/h_count_reg_reg[2]_rep__1/C (clocked by clk_out1_clk_wiz_0) and isc0/is7/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#630 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[4]_rep__3/C is not reached by a timing clock
+TIMING-16#14 Warning
+Large setup violation  
+There is a large setup violation of -4.406 ns between vt0/vs0/v_count_reg_reg[7]_rep/C (clocked by clk_out1_clk_wiz_0) and isc0/is2/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#631 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[5]/C is not reached by a timing clock
+TIMING-16#15 Warning
+Large setup violation  
+There is a large setup violation of -4.476 ns between vt0/vs0/h_count_reg_reg[0]_rep/C (clocked by clk_out1_clk_wiz_0) and isc0/is16/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#632 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[5]_rep/C is not reached by a timing clock
+TIMING-16#16 Warning
+Large setup violation  
+There is a large setup violation of -4.493 ns between vt0/vs0/v_count_reg_reg[9]_rep/C (clocked by clk_out1_clk_wiz_0) and isc0/is14/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#633 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[5]_rep__0/C is not reached by a timing clock
+TIMING-16#17 Warning
+Large setup violation  
+There is a large setup violation of -4.498 ns between vt0/vs0/v_count_reg_reg[9]_rep/C (clocked by clk_out1_clk_wiz_0) and isc0/is3/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#634 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[6]/C is not reached by a timing clock
+TIMING-16#18 Warning
+Large setup violation  
+There is a large setup violation of -4.529 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_sync_reg_reg_inv/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#635 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[6]_rep/C is not reached by a timing clock
+TIMING-16#19 Warning
+Large setup violation  
+There is a large setup violation of -4.533 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/h_sync_reg_reg_inv/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#636 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[6]_rep__0/C is not reached by a timing clock
+TIMING-16#20 Warning
+Large setup violation  
+There is a large setup violation of -4.546 ns between vt0/vs0/v_count_reg_reg[8]_rep/C (clocked by clk_out1_clk_wiz_0) and isc0/is5/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#637 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[6]_rep__1/C is not reached by a timing clock
+TIMING-16#21 Warning
+Large setup violation  
+There is a large setup violation of -4.622 ns between vt0/vs0/v_count_reg_reg[1]/C (clocked by clk_out1_clk_wiz_0) and isc0/is9/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#638 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[7]/C is not reached by a timing clock
+TIMING-16#22 Warning
+Large setup violation  
+There is a large setup violation of -4.754 ns between vt0/vs0/v_count_reg_reg[9]_rep/C (clocked by clk_out1_clk_wiz_0) and isc0/is17/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#639 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[7]_rep/C is not reached by a timing clock
+TIMING-16#23 Warning
+Large setup violation  
+There is a large setup violation of -4.879 ns between vt0/vs0/v_count_reg_reg[5]_rep__0/C (clocked by clk_out1_clk_wiz_0) and isc0/is22/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#640 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[7]_rep__0/C is not reached by a timing clock
+TIMING-16#24 Warning
+Large setup violation  
+There is a large setup violation of -4.885 ns between vt0/vs0/v_count_reg_reg[4]/C (clocked by clk_out1_clk_wiz_0) and isc0/is19/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#641 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[7]_rep__1/C is not reached by a timing clock
+TIMING-16#25 Warning
+Large setup violation  
+There is a large setup violation of -4.937 ns between vt0/vs0/v_count_reg_reg[5]_rep__0/C (clocked by clk_out1_clk_wiz_0) and isc0/is8/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#642 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[8]/C is not reached by a timing clock
+TIMING-16#26 Warning
+Large setup violation  
+There is a large setup violation of -5.014 ns between vt0/vs0/v_count_reg_reg[9]_rep/C (clocked by clk_out1_clk_wiz_0) and isc0/is18/destroyed_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#643 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[8]_rep/C is not reached by a timing clock
+TIMING-16#27 Warning
+Large setup violation  
+There is a large setup violation of -5.126 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[2]_rep/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#644 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[8]_rep__0/C is not reached by a timing clock
+TIMING-16#28 Warning
+Large setup violation  
+There is a large setup violation of -5.126 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[3]_rep/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#645 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[8]_rep__1/C is not reached by a timing clock
+TIMING-16#29 Warning
+Large setup violation  
+There is a large setup violation of -5.126 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[4]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#646 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_count_reg_reg[9]/C is not reached by a timing clock
+TIMING-16#30 Warning
+Large setup violation  
+There is a large setup violation of -5.126 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[8]_rep/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#647 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/h_sync_reg_reg_inv/C is not reached by a timing clock
+TIMING-16#31 Warning
+Large setup violation  
+There is a large setup violation of -5.130 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[4]_rep/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#648 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/mod2_reg_reg/C is not reached by a timing clock
+TIMING-16#32 Warning
+Large setup violation  
+There is a large setup violation of -5.130 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[7]_rep/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#649 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[0]/C is not reached by a timing clock
+TIMING-16#33 Warning
+Large setup violation  
+There is a large setup violation of -5.177 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[0]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#650 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[10]/C is not reached by a timing clock
+TIMING-16#34 Warning
+Large setup violation  
+There is a large setup violation of -5.177 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[2]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#651 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[1]/C is not reached by a timing clock
+TIMING-16#35 Warning
+Large setup violation  
+There is a large setup violation of -5.177 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[2]_rep__0/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#652 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[1]_rep/C is not reached by a timing clock
+TIMING-16#36 Warning
+Large setup violation  
+There is a large setup violation of -5.177 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[5]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#653 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[2]/C is not reached by a timing clock
+TIMING-16#37 Warning
+Large setup violation  
+There is a large setup violation of -5.177 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[5]_rep__0/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#654 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[2]_rep/C is not reached by a timing clock
+TIMING-16#38 Warning
+Large setup violation  
+There is a large setup violation of -5.177 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[9]_rep/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#655 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[3]/C is not reached by a timing clock
+TIMING-16#39 Warning
+Large setup violation  
+There is a large setup violation of -5.178 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[0]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#656 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[3]_rep/C is not reached by a timing clock
+TIMING-16#40 Warning
+Large setup violation  
+There is a large setup violation of -5.178 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[1]_rep/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#657 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[4]/C is not reached by a timing clock
+TIMING-16#41 Warning
+Large setup violation  
+There is a large setup violation of -5.178 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[3]_rep__2/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#658 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[4]_rep/C is not reached by a timing clock
+TIMING-16#42 Warning
+Large setup violation  
+There is a large setup violation of -5.178 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[4]_rep__1/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#659 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[5]/C is not reached by a timing clock
+TIMING-16#43 Warning
+Large setup violation  
+There is a large setup violation of -5.178 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[5]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#660 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[5]_rep/C is not reached by a timing clock
+TIMING-16#44 Warning
+Large setup violation  
+There is a large setup violation of -5.178 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[5]_rep__0/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#661 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[6]/C is not reached by a timing clock
+TIMING-16#45 Warning
+Large setup violation  
+There is a large setup violation of -5.178 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[7]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#662 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[7]/C is not reached by a timing clock
+TIMING-16#46 Warning
+Large setup violation  
+There is a large setup violation of -5.178 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[7]_rep__1/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#663 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[8]/C is not reached by a timing clock
+TIMING-16#47 Warning
+Large setup violation  
+There is a large setup violation of -5.181 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[1]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#664 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[9]/C is not reached by a timing clock
+TIMING-16#48 Warning
+Large setup violation  
+There is a large setup violation of -5.181 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[3]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#665 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[9]_rep/C is not reached by a timing clock
+TIMING-16#49 Warning
+Large setup violation  
+There is a large setup violation of -5.181 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[5]_rep/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#666 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_count_reg_reg[9]_rep__0/C is not reached by a timing clock
+TIMING-16#50 Warning
+Large setup violation  
+There is a large setup violation of -5.181 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[6]_rep/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
-TIMING-17#667 Critical Warning
-Non-clocked sequential cell  
-The clock pin vt0/vs0/v_sync_reg_reg_inv/C is not reached by a timing clock
+TIMING-16#51 Warning
+Large setup violation  
+There is a large setup violation of -5.181 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[8]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#52 Warning
+Large setup violation  
+There is a large setup violation of -5.183 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[3]_rep__0/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#53 Warning
+Large setup violation  
+There is a large setup violation of -5.183 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[4]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#54 Warning
+Large setup violation  
+There is a large setup violation of -5.183 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[5]_rep/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#55 Warning
+Large setup violation  
+There is a large setup violation of -5.185 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[10]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#56 Warning
+Large setup violation  
+There is a large setup violation of -5.185 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[6]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#57 Warning
+Large setup violation  
+There is a large setup violation of -5.185 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[7]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#58 Warning
+Large setup violation  
+There is a large setup violation of -5.185 ns between on_sw_reg_replica/C (clocked by sys_clk_pin) and vt0/vs0/v_count_reg_reg[9]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#59 Warning
+Large setup violation  
+There is a large setup violation of -5.193 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[0]_rep/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#60 Warning
+Large setup violation  
+There is a large setup violation of -5.193 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[2]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#61 Warning
+Large setup violation  
+There is a large setup violation of -5.193 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[6]_rep__1/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#62 Warning
+Large setup violation  
+There is a large setup violation of -5.193 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[8]_rep__1/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#63 Warning
+Large setup violation  
+There is a large setup violation of -5.198 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[1]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#64 Warning
+Large setup violation  
+There is a large setup violation of -5.198 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[2]_rep__0/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#65 Warning
+Large setup violation  
+There is a large setup violation of -5.198 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[2]_rep__1/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#66 Warning
+Large setup violation  
+There is a large setup violation of -5.198 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[3]_rep__1/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#67 Warning
+Large setup violation  
+There is a large setup violation of -5.198 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[4]_rep/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#68 Warning
+Large setup violation  
+There is a large setup violation of -5.198 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[5]_rep__1/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#69 Warning
+Large setup violation  
+There is a large setup violation of -5.198 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[6]_rep/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#70 Warning
+Large setup violation  
+There is a large setup violation of -5.274 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[10]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#71 Warning
+Large setup violation  
+There is a large setup violation of -5.274 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[3]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#72 Warning
+Large setup violation  
+There is a large setup violation of -5.274 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[4]_rep__0/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#73 Warning
+Large setup violation  
+There is a large setup violation of -5.274 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[8]_rep__0/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#74 Warning
+Large setup violation  
+There is a large setup violation of -5.306 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[9]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#75 Warning
+Large setup violation  
+There is a large setup violation of -5.318 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[3]_rep/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#76 Warning
+Large setup violation  
+There is a large setup violation of -5.318 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[4]_rep__2/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#77 Warning
+Large setup violation  
+There is a large setup violation of -5.318 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[6]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#78 Warning
+Large setup violation  
+There is a large setup violation of -5.318 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[6]_rep__0/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#79 Warning
+Large setup violation  
+There is a large setup violation of -5.495 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[2]_rep/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#80 Warning
+Large setup violation  
+There is a large setup violation of -5.536 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[7]_rep/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#81 Warning
+Large setup violation  
+There is a large setup violation of -5.536 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[7]_rep__0/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#82 Warning
+Large setup violation  
+There is a large setup violation of -5.536 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[8]/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#83 Warning
+Large setup violation  
+There is a large setup violation of -5.536 ns between on_sw_reg_replica_1/C (clocked by sys_clk_pin) and vt0/vs0/h_count_reg_reg[8]_rep/R (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#84 Warning
+Large setup violation  
+There is a large setup violation of -6.409 ns between vt0/vs0/v_count_reg_reg[7]_rep/C (clocked by clk_out1_clk_wiz_0) and pl0/s0/hit_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#85 Warning
+Large setup violation  
+There is a large setup violation of -6.414 ns between vt0/vs0/v_count_reg_reg[7]_rep/C (clocked by clk_out1_clk_wiz_0) and gc0/dsp_clk_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#86 Warning
+Large setup violation  
+There is a large setup violation of -6.525 ns between vt0/vs0/v_count_reg_reg[7]_rep/C (clocked by clk_out1_clk_wiz_0) and pl0/s1/hit_reg/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#87 Warning
+Large setup violation  
+There is a large setup violation of -7.139 ns between vt0/vs0/v_count_reg_reg[7]_rep/C (clocked by clk_out1_clk_wiz_0) and gc0/destroyed_count_reg[0]/CE (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#88 Warning
+Large setup violation  
+There is a large setup violation of -7.139 ns between vt0/vs0/v_count_reg_reg[7]_rep/C (clocked by clk_out1_clk_wiz_0) and gc0/destroyed_count_reg[1]/CE (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#89 Warning
+Large setup violation  
+There is a large setup violation of -7.139 ns between vt0/vs0/v_count_reg_reg[7]_rep/C (clocked by clk_out1_clk_wiz_0) and gc0/destroyed_count_reg[2]/CE (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#90 Warning
+Large setup violation  
+There is a large setup violation of -7.139 ns between vt0/vs0/v_count_reg_reg[7]_rep/C (clocked by clk_out1_clk_wiz_0) and gc0/destroyed_count_reg[3]/CE (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#91 Warning
+Large setup violation  
+There is a large setup violation of -7.139 ns between vt0/vs0/v_count_reg_reg[7]_rep/C (clocked by clk_out1_clk_wiz_0) and gc0/destroyed_count_reg[4]/CE (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-18#1 Warning

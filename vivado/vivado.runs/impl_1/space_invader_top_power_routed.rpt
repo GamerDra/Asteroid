@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date             : Sat Apr 12 15:43:36 2025
+| Date             : Sat Apr 12 16:57:01 2025
 | Host             : ROG-Rud running 64-bit major release  (build 9200)
 | Command          : report_power -file space_invader_top_power_routed.rpt -pb space_invader_top_power_summary_routed.pb -rpx space_invader_top_power_routed.rpx
 | Design           : space_invader_top
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.106        |
+| Total On-Chip Power (W)  | 0.237        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.009        |
-| Device Static (W)        | 0.097        |
+| Dynamic (W)              | 0.139        |
+| Device Static (W)        | 0.098        |
 | Effective TJA (C/W)      | 4.6          |
-| Max Ambient (C)          | 84.5         |
-| Junction Temperature (C) | 25.5         |
+| Max Ambient (C)          | 83.9         |
+| Junction Temperature (C) | 26.1         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,19 +52,20 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.004 |        3 |       --- |             --- |
-| Slice Logic    |     0.002 |     6144 |       --- |             --- |
-|   LUT as Logic |     0.002 |     3152 |     63400 |            4.97 |
-|   CARRY4       |    <0.001 |      560 |     15850 |            3.53 |
-|   Register     |    <0.001 |      922 |    126800 |            0.73 |
+| Clocks         |     0.004 |        6 |       --- |             --- |
+| Slice Logic    |     0.005 |     6132 |       --- |             --- |
+|   LUT as Logic |     0.005 |     3190 |     63400 |            5.03 |
+|   CARRY4       |    <0.001 |      552 |     15850 |            3.48 |
+|   Register     |    <0.001 |      896 |    126800 |            0.71 |
 |   F7/F8 Muxes  |    <0.001 |       17 |     63400 |            0.03 |
 |   Others       |     0.000 |       74 |       --- |             --- |
-|   BUFG         |     0.000 |        3 |        32 |            9.38 |
-| Signals        |     0.002 |     2665 |       --- |             --- |
+|   BUFG         |     0.000 |        2 |        32 |            6.25 |
+| Signals        |     0.006 |     2660 |       --- |             --- |
+| MMCM           |     0.122 |        1 |         6 |           16.67 |
 | DSPs           |    <0.001 |        1 |       240 |            0.42 |
 | I/O            |    <0.001 |       20 |       210 |            9.52 |
-| Static Power   |     0.097 |          |           |                 |
-| Total          |     0.106 |          |           |                 |
+| Static Power   |     0.098 |          |           |                 |
+| Total          |     0.237 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,8 +75,8 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.023 |       0.008 |      0.015 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.018 |       0.000 |      0.018 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.032 |       0.016 |      0.015 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.086 |       0.068 |      0.018 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.004 |       0.000 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -127,11 +128,14 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+-------------+--------+-----------------+
-| Clock       | Domain | Constraint (ns) |
-+-------------+--------+-----------------+
-| sys_clk_pin | clk    |            10.0 |
-+-------------+--------+-----------------+
++--------------------+----------------------------------+-----------------+
+| Clock              | Domain                           | Constraint (ns) |
++--------------------+----------------------------------+-----------------+
+| clk_out1_clk_wiz_0 | u_clkgen/inst/clk_out1_clk_wiz_0 |            15.4 |
+| clkfbout_clk_wiz_0 | u_clkgen/inst/clkfbout_clk_wiz_0 |            50.0 |
+| sys_clk_pin        | clk                              |            10.0 |
+| sys_clk_pin        | clk_IBUF_BUFG                    |            10.0 |
++--------------------+----------------------------------+-----------------+
 
 
 3. Detailed Reports
@@ -143,11 +147,15 @@ Table of Contents
 +-----------------------+-----------+
 | Name                  | Power (W) |
 +-----------------------+-----------+
-| space_invader_top     |     0.009 |
+| space_invader_top     |     0.139 |
 |   gc0                 |     0.002 |
-|     ADDSUB_MACRO_inst |     0.001 |
-|   vt0                 |     0.002 |
-|     vs0               |     0.002 |
+|     ADDSUB_MACRO_inst |     0.002 |
+|   isc0                |     0.002 |
+|   u_clkgen            |     0.122 |
+|     inst              |     0.122 |
+|   vt0                 |     0.008 |
+|     vs0               |     0.006 |
+|     vt0               |     0.002 |
 +-----------------------+-----------+
 
 

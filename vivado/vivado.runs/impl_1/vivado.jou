@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Sat Apr 12 15:44:46 2025
-# Process ID: 19300
+# Start of session at: Sat Apr 12 16:52:50 2025
+# Process ID: 23760
 # Current directory: C:/Users/RUDRA/Documents/Git/Asteroid/vivado/vivado.runs/impl_1
 # Command line: vivado.exe -log space_invader_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source space_invader_top.tcl -notrace
 # Log file: C:/Users/RUDRA/Documents/Git/Asteroid/vivado/vivado.runs/impl_1/space_invader_top.vdi
@@ -19,6 +19,6 @@
 # Host memory       :14777 MB
 # Swap memory       :7516 MB
 # Total Virtual     :22293 MB
-# Available Virtual :5669 MB
+# Available Virtual :6282 MB
 #-----------------------------------------------------------
 source space_invader_top.tcl -notrace

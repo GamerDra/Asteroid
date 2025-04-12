@@ -7,7 +7,7 @@ module space_invader_top(
     output hsync, vsync
     );
     
-    wire clk_1, clk_2, clk_3, clk_4, clk_50mhz;
+    wire clk_1, clk_2, clk_3, clk_4, clk_50mhz, clk_65mhz;;
     wire player_en;
     wire [2:0] level;
     wire [23:0] inv_en;
@@ -52,6 +52,12 @@ module space_invader_top(
     .clk_rst  (clk_rst),    // active-low reset
     .div_count(32'd1),      // toggles after every 2 counts
     .clk_div  (clk_50mhz)     // ~25 MHz output
+);
+    clk_wiz_0 u_clkgen (
+    .clk_out1(clk_65mhz),    // This is your 65 MHz pixel clock
+    .clk_in1(clk),    // 100 MHz input clock
+    .reset(1'b0),            // Active-high reset (can be tied low)
+    .locked()                // Optional: indicates stable clock
 );
     always @(posedge clk)
         begin
@@ -112,7 +118,7 @@ module space_invader_top(
         );
         
     vga_top vt0 (
-        .clk(clk_50mhz), 
+        .clk(clk_65mhz), 
         .mode(mode), 
         .on_sw(on_sw),
         .pixel_x(pixel_x), 

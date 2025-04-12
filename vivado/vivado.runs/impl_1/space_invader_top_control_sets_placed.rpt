@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date         : Sat Apr 12 15:43:04 2025
+| Date         : Sat Apr 12 16:53:54 2025
 | Host         : ROG-Rud running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file space_invader_top_control_sets_placed.rpt
 | Design       : space_invader_top
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    33 |
-|    Minimum number of control sets                        |    33 |
+| Total control sets                                       |    32 |
+|    Minimum number of control sets                        |    32 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    86 |
+| Unused register locations in slices containing registers |    82 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    33 |
+| Total control sets |    32 |
 | >= 0 to < 4        |     4 |
-| >= 4 to < 6        |     3 |
-| >= 6 to < 8        |     3 |
-| >= 8 to < 10       |     3 |
+| >= 4 to < 6        |     4 |
+| >= 6 to < 8        |     4 |
+| >= 8 to < 10       |     1 |
 | >= 10 to < 12      |     4 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     1 |
-| >= 16              |    15 |
+| >= 16              |    14 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,54 +58,53 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              90 |           53 |
+| No           | No                    | No                     |              87 |           48 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |             221 |           78 |
-| Yes          | No                    | No                     |             245 |          109 |
+| No           | Yes                   | No                     |             224 |           81 |
+| Yes          | No                    | No                     |             242 |          115 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             366 |          140 |
+| Yes          | Yes                   | No                     |             341 |          124 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+------------------------------+----------------------------------+-------------------------------------+------------------+----------------+--------------+
-|         Clock Signal         |           Enable Signal          |           Set/Reset Signal          | Slice Load Count | Bel Load Count | Bels / Slice |
-+------------------------------+----------------------------------+-------------------------------------+------------------+----------------+--------------+
-|  shot_x_reg[10]_i_2_n_0      | pl0/s0/shot_y[8]_i_1_n_0         | pl0/s0/shot_y[5]_i_1_n_0            |                1 |              1 |         1.00 |
-|  shot_x_reg[10]_i_2_n_0      | pl0/s1/shot_y[8]_i_1__0_n_0      | pl0/s1/shot_y[5]_i_1__0_n_0         |                1 |              1 |         1.00 |
-|  v_count_reg_reg[10]_i_4_n_0 |                                  |                                     |                2 |              3 |         1.50 |
-|  clk_IBUF_BUFG               |                                  |                                     |                2 |              3 |         1.50 |
-|  shot_x_reg[10]_i_2_n_0      |                                  |                                     |                2 |              4 |         2.00 |
-|  clk_1_BUFG                  | isc0/FSM_onehot_state[3]_i_1_n_0 | gc0/load                            |                2 |              4 |         2.00 |
-|  clk_IBUF_BUFG               | isc0/is10/E[0]                   | gc0/load                            |                2 |              5 |         2.50 |
-|  clk_IBUF_BUFG               |                                  | cd1/clk_rst                         |                6 |              6 |         1.00 |
-|  cd4/clk_4                   |                                  | gc0/load                            |                1 |              7 |         7.00 |
-|  clk_1_BUFG                  | isc0/v_count                     | gc0/load                            |                2 |              7 |         3.50 |
-|  shot_x_reg[10]_i_2_n_0      | pl0/s0/shot_y[8]_i_1_n_0         |                                     |                3 |              8 |         2.67 |
-|  shot_x_reg[10]_i_2_n_0      | pl0/s1/shot_y[8]_i_1__0_n_0      |                                     |                4 |              8 |         2.00 |
-|  clk_1_BUFG                  |                                  | isc0/h_count[8]_i_1_n_0             |                4 |              8 |         2.00 |
-|  cd2/clk_div_reg_0           | pl0/sel                          | gc0/load                            |                3 |             11 |         3.67 |
-|  shot_x_reg[10]_i_2_n_0      | pl0/load__0                      |                                     |                3 |             11 |         3.67 |
-|  shot_x_reg[10]_i_2_n_0      | pl0/shot_en_reg[1]_inv_n_0       |                                     |                3 |             11 |         3.67 |
-|  clk_1_BUFG                  | isc0/is2/ship_x[10]_i_1_n_0      | gc0/load                            |                4 |             11 |         2.75 |
-|  clk_IBUF_BUFG               | gc0/inv_en[23]_i_1_n_0           | gc0/FSM_sequential_state[3]_i_1_n_0 |                9 |             15 |         1.67 |
-|  clk_IBUF_BUFG               |                                  | gc0/FSM_sequential_state[3]_i_1_n_0 |                7 |             16 |         2.29 |
-|  v_count_reg_reg[10]_i_4_n_0 | vt0/vs0/v_count_reg0             | vt0/vs0/v_count_reg[10]_i_1_n_0     |                7 |             18 |         2.57 |
-|  clk_1_BUFG                  | isc0/is5/lvl_start_reg_rep       |                                     |               10 |             24 |         2.40 |
-|  clk_1_BUFG                  | isc0/is23/shift_right_reg        | isc0/is23/lvl_start_reg_rep         |               23 |             24 |         1.04 |
-|  clk_IBUF_BUFG               |                                  | gc0/load                            |               20 |             24 |         1.20 |
-|  clk_IBUF_BUFG               | sel                              | cd1/clk_rst                         |                7 |             27 |         3.86 |
-|  clk_IBUF_BUFG               |                                  | cd_50mhz/count[0]_i_1__4_n_0        |                8 |             32 |         4.00 |
-|  clk_IBUF_BUFG               |                                  | cd1/count[0]_i_1__0_n_0             |                8 |             32 |         4.00 |
-|  clk_IBUF_BUFG               |                                  | cd2/count[0]_i_1__1_n_0             |                8 |             32 |         4.00 |
-|  clk_IBUF_BUFG               |                                  | cd3/count[0]_i_1__2_n_0             |                8 |             32 |         4.00 |
-|  clk_IBUF_BUFG               |                                  | cd4/count[0]_i_1__3_n_0             |                8 |             32 |         4.00 |
-|  v_count_reg_reg[10]_i_4_n_0 | vt0/vs0/mod2_reg                 | vt0/vs0/h_count_reg[10]_i_1_n_0     |               13 |             33 |         2.54 |
-|  clk_1_BUFG                  |                                  |                                     |               47 |             80 |         1.70 |
-|  clk_1_BUFG                  | isc0/is23/shift_right_reg        |                                     |               86 |            183 |         2.13 |
-|  clk_1_BUFG                  | isc0/is5/lvl_start_reg_rep       | gc0/load                            |               66 |            209 |         3.17 |
-+------------------------------+----------------------------------+-------------------------------------+------------------+----------------+--------------+
++-------------------------+----------------------------------+-------------------------------------+------------------+----------------+--------------+
+|       Clock Signal      |           Enable Signal          |           Set/Reset Signal          | Slice Load Count | Bel Load Count | Bels / Slice |
++-------------------------+----------------------------------+-------------------------------------+------------------+----------------+--------------+
+|  u_clkgen/inst/clk_out1 |                                  |                                     |                1 |              2 |         2.00 |
+|  shot_x_reg[10]_i_2_n_0 |                                  |                                     |                1 |              2 |         2.00 |
+|  shot_x_reg[10]_i_2_n_0 | pl0/s0/shot_y[8]_i_1_n_0         | pl0/s0/shot_y[5]_i_1_n_0            |                1 |              2 |         2.00 |
+|  clk_IBUF_BUFG          |                                  |                                     |                1 |              3 |         3.00 |
+|  clk_1_BUFG             | isc0/FSM_onehot_state[3]_i_1_n_0 | gc0/load                            |                1 |              4 |         4.00 |
+|  shot_x_reg[10]_i_2_n_0 | pl0/s1/shot_y[10]_i_1_n_0        | pl0/shot_en_reg[1]_inv_n_0          |                2 |              5 |         2.50 |
+|  clk_IBUF_BUFG          |                                  | cd1/clk_rst                         |                5 |              5 |         1.00 |
+|  clk_IBUF_BUFG          | pl0/s0/E[0]                      | gc0/load                            |                1 |              5 |         5.00 |
+|  shot_x_reg[10]_i_2_n_0 | pl0/s1/shot_y[10]_i_1_n_0        |                                     |                2 |              6 |         3.00 |
+|  cd4/clk_4              |                                  | gc0/load                            |                1 |              7 |         7.00 |
+|  shot_x_reg[10]_i_2_n_0 | pl0/s0/shot_y[8]_i_1_n_0         |                                     |                4 |              7 |         1.75 |
+|  clk_1_BUFG             | isc0/v_count                     | gc0/load                            |                2 |              7 |         3.50 |
+|  clk_1_BUFG             |                                  | isc0/h_count[8]_i_1_n_0             |                4 |              8 |         2.00 |
+|  cd2/clk_div_reg_0      | pl0/sel                          | gc0/load                            |                4 |             11 |         2.75 |
+|  shot_x_reg[10]_i_2_n_0 | pl0/load__0                      |                                     |                5 |             11 |         2.20 |
+|  shot_x_reg[10]_i_2_n_0 | pl0/shot_en_reg[1]_inv_n_0       |                                     |                4 |             11 |         2.75 |
+|  clk_1_BUFG             | isc0/is2/ship_x[10]_i_1_n_0      | gc0/load                            |                4 |             11 |         2.75 |
+|  clk_IBUF_BUFG          | gc0/inv_en[23]_i_1_n_0           | gc0/FSM_sequential_state[3]_i_1_n_0 |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG          |                                  | gc0/FSM_sequential_state[3]_i_1_n_0 |                8 |             16 |         2.00 |
+|  u_clkgen/inst/clk_out1 | vt0/vs0/h_end                    | vt0/vs0/v_count_reg[10]_i_1_n_0     |                8 |             21 |         2.62 |
+|  clk_IBUF_BUFG          |                                  | gc0/load                            |               21 |             24 |         1.14 |
+|  clk_1_BUFG             | isc0/is23/shift_right_reg        | isc0/is23/lvl_start_reg_rep         |               22 |             24 |         1.09 |
+|  clk_1_BUFG             | isc0/is5/lvl_start_reg_rep       |                                     |               12 |             24 |         2.00 |
+|  clk_IBUF_BUFG          | sel                              | cd1/clk_rst                         |                7 |             27 |         3.86 |
+|  clk_IBUF_BUFG          |                                  | cd1/count[0]_i_1__0_n_0             |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG          |                                  | cd2/count[0]_i_1__1_n_0             |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG          |                                  | cd3/count[0]_i_1__2_n_0             |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG          |                                  | cd4/count[0]_i_1__3_n_0             |                8 |             32 |         4.00 |
+|  u_clkgen/inst/clk_out1 |                                  | vt0/vs0/h_count_reg[10]_i_1_n_0     |               10 |             36 |         3.60 |
+|  clk_1_BUFG             |                                  |                                     |               45 |             80 |         1.78 |
+|  clk_1_BUFG             | isc0/is23/shift_right_reg        |                                     |               88 |            183 |         2.08 |
+|  clk_1_BUFG             | isc0/is5/lvl_start_reg_rep       | gc0/load                            |               66 |            209 |         3.17 |
++-------------------------+----------------------------------+-------------------------------------+------------------+----------------+--------------+
 
 

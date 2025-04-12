@@ -1,0 +1,37 @@
++====================+====================+===============================+
+| Launch Setup Clock | Launch Hold Clock  | Pin                           |
++====================+====================+===============================+
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | pl0/s1/hit_reg/D              |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | gc0/destroyed_count_reg[1]/CE |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | gc0/destroyed_count_reg[2]/CE |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | gc0/destroyed_count_reg[3]/CE |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | gc0/destroyed_count_reg[0]/CE |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | gc0/destroyed_count_reg[4]/CE |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | pl0/s0/hit_reg/D              |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | gc0/dsp_clk_reg/D             |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is15/destroyed_reg/D     |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is3/destroyed_reg/D      |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is18/destroyed_reg/D     |
+| sys_clk_pin        | clk_out1_clk_wiz_0 | vt0/vs0/v_sync_reg_reg_inv/D  |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is16/destroyed_reg/D     |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is2/destroyed_reg/D      |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is22/destroyed_reg/D     |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is11/destroyed_reg/D     |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is7/destroyed_reg/D      |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is14/destroyed_reg/D     |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is13/destroyed_reg/D     |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is4/destroyed_reg/D      |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is1/destroyed_reg/D      |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is21/destroyed_reg/D     |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is0/destroyed_reg/D      |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is17/destroyed_reg/D     |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is8/destroyed_reg/D      |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is12/destroyed_reg/D     |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is6/destroyed_reg/D      |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is20/destroyed_reg/D     |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is5/destroyed_reg/D      |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is19/destroyed_reg/D     |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is23/destroyed_reg/D     |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is10/destroyed_reg/D     |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | isc0/is9/destroyed_reg/D      |
++--------------------+--------------------+-------------------------------+
