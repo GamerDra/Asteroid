@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Sat Apr 12 16:51:45 2025
-# Process ID: 24104
+# Start of session at: Thu May  1 15:50:43 2025
+# Process ID: 3604
 # Current directory: C:/Users/RUDRA/Documents/Git/Asteroid/vivado/vivado.runs/synth_1
 # Command line: vivado.exe -log space_invader_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source space_invader_top.tcl
 # Log file: C:/Users/RUDRA/Documents/Git/Asteroid/vivado/vivado.runs/synth_1/space_invader_top.vds
@@ -17,12 +17,12 @@
 # CPU Physical cores:8
 # CPU Logical cores :16
 # Host memory       :14777 MB
-# Swap memory       :7516 MB
-# Total Virtual     :22293 MB
-# Available Virtual :5987 MB
+# Swap memory       :6710 MB
+# Total Virtual     :21488 MB
+# Available Virtual :11384 MB
 #-----------------------------------------------------------
 source space_invader_top.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 529.016 ; gain = 201.059
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 532.527 ; gain = 200.012
 Command: read_checkpoint -auto_incremental -incremental C:/Users/RUDRA/Documents/Git/Asteroid/vivado/vivado.srcs/utils_1/imports/synth_1/space_invader_top.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/RUDRA/Documents/Git/Asteroid/vivado/vivado.srcs/utils_1/imports/synth_1/space_invader_top.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -36,9 +36,9 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 21356
+INFO: [Synth 8-7075] Helper process launched with PID 14676
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1416.410 ; gain = 449.758
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1418.418 ; gain = 448.562
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-11241] undeclared symbol 'video_on', assumed default net type 'wire' [C:/Users/RUDRA/Documents/Git/Asteroid/src/vga_top.v:23]
 WARNING: [Synth 8-10714] extra semicolon is not allowed here in this dialect; use SystemVerilog mode instead [C:/Users/RUDRA/Documents/Git/Asteroid/src/space_inv_top.v:10]
@@ -47,8 +47,8 @@ INFO: [Synth 8-11241] undeclared symbol 'lvl_start', assumed default net type 'w
 INFO: [Synth 8-6157] synthesizing module 'space_invader_top' [C:/Users/RUDRA/Documents/Git/Asteroid/src/space_inv_top.v:1]
 INFO: [Synth 8-6157] synthesizing module 'clk_div' [C:/Users/RUDRA/Documents/Git/Asteroid/src/clk_div.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'clk_div' (0#1) [C:/Users/RUDRA/Documents/Git/Asteroid/src/clk_div.v:1]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/RUDRA/Documents/Git/Asteroid/vivado/vivado.runs/synth_1/.Xil/Vivado-24104-ROG-Rud/realtime/clk_wiz_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [C:/Users/RUDRA/Documents/Git/Asteroid/vivado/vivado.runs/synth_1/.Xil/Vivado-24104-ROG-Rud/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/RUDRA/Documents/Git/Asteroid/vivado/vivado.runs/synth_1/.Xil/Vivado-3604-ROG-Rud/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [C:/Users/RUDRA/Documents/Git/Asteroid/vivado/vivado.runs/synth_1/.Xil/Vivado-3604-ROG-Rud/realtime/clk_wiz_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'game_ctrl' [C:/Users/RUDRA/Documents/Git/Asteroid/src/game_ctrl.v:1]
 INFO: [Synth 8-6157] synthesizing module 'xil_internal_svlib_ADDSUB_MACRO' [C:/Xilinx/Vivado/2024.1/data/verilog/src/unimacro/ADDSUB_MACRO.v:24]
 	Parameter DEVICE bound to: 7SERIES - type: string 
@@ -170,18 +170,18 @@ WARNING: [Synth 8-7129] Port pixel_y[2] in module vga_rgb_inbet is either unconn
 WARNING: [Synth 8-7129] Port pixel_y[1] in module vga_rgb_inbet is either unconnected or has no load
 WARNING: [Synth 8-7129] Port pixel_y[0] in module vga_rgb_inbet is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1556.652 ; gain = 590.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1558.438 ; gain = 588.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1556.652 ; gain = 590.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1558.438 ; gain = 588.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1556.652 ; gain = 590.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1558.438 ; gain = 588.582
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.041 . Memory (MB): peak = 1556.652 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.046 . Memory (MB): peak = 1558.438 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -198,22 +198,22 @@ Parsing XDC File [C:/Users/RUDRA/Documents/Git/Asteroid/vivado/vivado.runs/synth
 Finished Parsing XDC File [C:/Users/RUDRA/Documents/Git/Asteroid/vivado/vivado.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1597.562 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1558.438 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1597.562 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1558.438 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1597.562 ; gain = 630.910
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1558.438 ; gain = 588.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1597.562 ; gain = 630.910
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1558.438 ; gain = 588.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -222,7 +222,7 @@ Applied set_property IO_BUFFER_TYPE = NONE for clk. (constraint file  c:/Users/R
 Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  c:/Users/RUDRA/Documents/Git/Asteroid/vivado/vivado.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
 Applied set_property KEEP_HIERARCHY = SOFT for u_clkgen. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1597.562 ; gain = 630.910
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1558.438 ; gain = 588.582
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'game_ctrl'
 INFO: [Synth 8-802] inferred FSM for state register 'shot_state_reg' in module 'player'
@@ -263,7 +263,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'shot_state_reg' using enco
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'inv_ship_controller'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1597.562 ; gain = 630.910
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1558.438 ; gain = 588.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -324,7 +324,7 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1597.562 ; gain = 630.910
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1558.438 ; gain = 588.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -345,19 +345,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1597.562 ; gain = 630.910
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 1575.590 ; gain = 605.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1636.449 ; gain = 669.797
+Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 1621.777 ; gain = 651.922
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1667.781 ; gain = 701.129
+Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 1654.219 ; gain = 684.363
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -375,37 +375,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1682.324 ; gain = 715.672
+Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1668.039 ; gain = 698.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1682.324 ; gain = 715.672
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1668.039 ; gain = 698.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 1682.324 ; gain = 715.672
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1668.039 ; gain = 698.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 1682.324 ; gain = 715.672
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1668.039 ; gain = 698.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 1682.324 ; gain = 715.672
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1668.039 ; gain = 698.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 1682.324 ; gain = 715.672
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1668.039 ; gain = 698.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -447,19 +447,19 @@ Report Cell Usage:
 |15    |OBUF    |    14|
 +------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 1682.324 ; gain = 715.672
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1668.039 ; gain = 698.184
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 1682.324 ; gain = 674.762
-Synthesis Optimization Complete : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 1682.324 ; gain = 715.672
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:34 ; elapsed = 00:00:42 . Memory (MB): peak = 1668.039 ; gain = 698.184
+Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 1668.039 ; gain = 698.184
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.073 . Memory (MB): peak = 1682.324 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.071 . Memory (MB): peak = 1668.039 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 570 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1682.324 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1668.039 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
@@ -467,8 +467,8 @@ Synth Design complete | Checksum: fa3836a5
 INFO: [Common 17-83] Releasing license: Synthesis
 72 Infos, 75 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 1682.324 ; gain = 1131.934
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1682.324 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:49 ; elapsed = 00:00:59 . Memory (MB): peak = 1668.039 ; gain = 1114.770
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1668.039 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/RUDRA/Documents/Git/Asteroid/vivado/vivado.runs/synth_1/space_invader_top.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file space_invader_top_utilization_synth.rpt -pb space_invader_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Apr 12 16:52:42 2025...
+INFO: [Common 17-206] Exiting Vivado at Thu May  1 15:51:51 2025...

@@ -123,7 +123,7 @@ OPTRACE "set parameters" START { }
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet C:/Users/RUDRA/Documents/Git/Asteroid/vivado/vivado.runs/synth_1/space_invader_top.dcp
-  read_ip -quiet c:/Users/RUDRA/Documents/Git/Asteroid/vivado/vivado.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+  read_ip -quiet C:/Users/RUDRA/Documents/Git/Asteroid/vivado/vivado.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
 OPTRACE "read constraints: implementation" START { }
   read_xdc C:/Users/RUDRA/Downloads/Nexys-A7-100T-Master.xdc
 OPTRACE "read constraints: implementation" END { }
